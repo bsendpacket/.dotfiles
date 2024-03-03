@@ -8,7 +8,7 @@
       # Place any values that need to be handled by ~/.zshrc here, if they cannot be defined elsewhere
     '';
     shellAliases = {
-      rebuild = "sudo nixos-rebuild switch --flake /home/remnix/.dotfiles#remnix";
+      rebuild = "sudo nixos-rebuild switch --flake /home/remnix/.dotfiles#remnix --impure";
       py = "python3";
     };
     plugins = [

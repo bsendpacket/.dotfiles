@@ -90,7 +90,7 @@
   };
 
   # Nicely reload system units when changing configs
-  systemd.user.startServices = "sd-switch";
+  # systemd.user.startServices = "sd-switch";
 
   # Anything more than a few lines should be moved to another file!
   programs = {
@@ -100,6 +100,8 @@
 
     git = {
       enable = true;
+      userName = "0x1c";
+      userEmail = "kbalint@0x1c.zip";
     };
   };
 }

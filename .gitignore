@@ -1,0 +1,20 @@
+# Prevent hardware specific configurations from being uploaded
+hardware-configuration.nix
+
+# Ignore nix result symlinks
+/result
+/result-*
+
+# Ignore editor backups and temporary files
+*~
+.*.swp
+.*.swo
+.*~
+
+# Ignore user-specific Nix files
+/.nix-defexpr
+/nix/*
+!nix/*.nix
+
+# Ignore generated and temporary files
+/tmp
