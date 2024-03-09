@@ -1,4 +1,4 @@
-{
+{ 
   description = "Your new nix config";
 
   inputs = {
@@ -6,9 +6,16 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
     # Home manager
-    home-manager.url = "github:nix-community/home-manager";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    
     # TODO: Add any other flake you might need
     # hardware.url = "github:nixos/nixos-hardware";
 
@@ -21,6 +28,7 @@
     self,
     nixpkgs,
     home-manager,
+    nixvim,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -28,7 +36,6 @@
     # NixOS configuration entrypoint
     # Available through 'nixos-rebuild --flake .#remnix'
     nixosConfigurations = {
-      # FIXME replace with your hostname
       remnix = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         # > Our main nixos configuration file <

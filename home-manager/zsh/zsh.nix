@@ -10,6 +10,12 @@
     shellAliases = {
       rebuild = "sudo nixos-rebuild switch --flake /home/remnix/.dotfiles#remnix --impure";
       py = "python3";
+      ls = "lsd";       #LSDeluxe
+      cd = "z";         #Zoxide
+      l = "ls -l";
+      la = "ls -a";
+      lla = "ls -la";
+      lt = "ls --tree";
     };
     plugins = [
       {
@@ -24,8 +30,8 @@
       }
       {
         name = "zsh-fast-syntax-highlighting";
-	src = pkgs.zsh-fast-syntax-highlighting;
-	file = "share/zsh/site-functions";
+        src = pkgs.zsh-fast-syntax-highlighting;
+        file = "share/zsh/site-functions";
       }
     ];
     oh-my-zsh = {

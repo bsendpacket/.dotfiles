@@ -12,13 +12,21 @@
     inputs.nix-colors.homeManagerModule
 
     # Grab Scripts from Internet
-    ./misc/scripts.nix
+    #./misc/scripts.nix
+
+    inputs.nixvim.homeManagerModules.nixvim
 
     # Configurations
-    ./alacritty/alacritty.nix
-    ./zsh/zsh.nix
-    ./neovim/neovim.nix
-    ./i3/i3.nix
+    /home/remnix/.dotfiles/home-manager/alacritty/alacritty.nix
+    /home/remnix/.dotfiles/home-manager/zsh/zsh.nix
+    /home/remnix/.dotfiles/home-manager/i3/i3.nix
+    /home/remnix/.dotfiles/home-manager/git/git.nix
+    /home/remnix/.dotfiles/home-manager/zoxide/zoxide.nix
+    /home/remnix/.dotfiles/home-manager/spotifyd/spotifyd.nix
+    /home/remnix/.dotfiles/home-manager/yazi/yazi.nix
+    /home/remnix/.dotfiles/home-manager/zathura/zathura.nix
+    /home/remnix/.dotfiles/home-manager/nixvim/nixvim.nix
+
   ];
 
   nixpkgs = {
@@ -56,12 +64,28 @@
       thefuck
 
       _7zz
-      wireshark
-      openssl
+      htop
+      glances
+
+      neofetch
+      
+      # Social
+      chromium
+      rainbowstream
+      spotify-tui
+      spotifyd
 
       # Utilities
       xclip
       xdragon
+
+      lsd
+      zoxide
+      fzf
+      fd
+      ripgrep
+      jq
+      yazi
 
       # Custom Python environment
       (python311.withPackages (ps: with ps; [
@@ -98,10 +122,5 @@
       enable = true;
     };
 
-    git = {
-      enable = true;
-      userName = "0x1c";
-      userEmail = "kbalint@0x1c.zip";
-    };
   };
 }
