@@ -25,7 +25,7 @@
     /home/remnix/.dotfiles/home-manager/spotifyd/spotifyd.nix
     /home/remnix/.dotfiles/home-manager/yazi/yazi.nix
     /home/remnix/.dotfiles/home-manager/zathura/zathura.nix
-    /home/remnix/.dotfiles/home-manager/nixvim/nixvim.nix
+    /home/remnix/.dotfiles/home-manager/neovim/neovim.nix
 
   ];
 
