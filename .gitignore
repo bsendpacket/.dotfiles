@@ -21,3 +21,7 @@ hardware-configuration.nix
 
 # Ignore spotifyd (uses Spotify credentials)
 spotifyd.nix
+
+# Ignore non-mandatory files
+/.ropeproject
+/.mypy_cache
