@@ -68,6 +68,7 @@
       glances
 
       neofetch
+      glow
       
       # Social
       chromium

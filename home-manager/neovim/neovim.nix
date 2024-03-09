@@ -2,7 +2,7 @@
 
   programs.nixvim = {
     enable = true;
-
+    
     options = {
       # Show line numbers and have relative-line numbers
       number = true;
@@ -35,8 +35,6 @@
 
       # Set completeopt to have a better completion experience
       completeopt = [ "menuone" "noinsert" "noselect" ];
-
-      # Avoid showing extra messages when using completion
 
     };
 
@@ -92,14 +90,32 @@
           ];
         };
       };
+
       cmp-nvim-lsp.enable = true;
-      cmp-fuzzy-path.enable = true;
+      cmp-path.enable = true;
 
       cmp-cmdline.enable = true;
       cmp-cmdline-history.enable = true;
-      
+
       cmp-calc.enable = true;
-      cmp-dictionary.enable = true;
+
+      # Navigation helper, toggle with :Navbuddy
+      # Navic is required by Navbuddy.
+      navbuddy.enable = true;
+      navic.enable = true;
+
+      # Purposefully makes nvim harder to use by adding timeouts to the basic movement keys
+      # This is in order to train to utilize faster and better movement mechanisms
+      hardtime.enable = true;
+
+      # Only press tab once!
+      intellitab.enable = true;
+      
+      # Show colors in-place for hex codes
+      nvim-colorizer.enable = true;
+
+      # LSP Formatter
+      lsp-format.enable = true;
 
       # Friendly Snippets
       friendly-snippets.enable = true;
@@ -293,23 +309,10 @@
 
       pkgs.vimPlugins.luasnip
 
-      # pkgs.vimPlugins.nvim-cmp
-      # pkgs.vimPlugins.cmp-nvim-lsp
-      # pkgs.vimPlugins.cmp-nvim-lsp-signature-help
-      # pkgs.vimPlugins.cmp-nvim-lsp-document-symbol
-      # pkgs.vimPlugins.cmp-fuzzy-path
-      # pkgs.vimPlugins.cmp-treesitter
-      # pkgs.vimPlugins.cmp-dictionary
-      # pkgs.vimPlugins.cmp-emoji
-      # pkgs.vimPlugins.cmp-zsh
-      # pkgs.vimPlugins.cmp_luasnip
-      #
+      pkgs.vimPlugins.nui-nvim
+
       pkgs.vimPlugins.nvim-lspconfig
-      #
-      # pkgs.vimPlugins.neodev-nvim
       pkgs.vimPlugins.fidget-nvim
-      #
-      #pkgs.vimPlugins.friendly-snippets
     ];
 
     extraConfigLua = ''
@@ -319,59 +322,7 @@
       -- Keep signcolumn on by default
       vim.wo.signcolumn = 'yes'
 
-      -- Setup for nvim-cmp
-      -- local cmp = require 'cmp'
-      -- local luasnip = require 'luasnip'
       require('luasnip.loaders.from_vscode').lazy_load()
-      -- luasnip.config.setup {}
-
-      -- cmp.setup {
-      --   snippet = {
-      --     expand = function(args)
-      --       luasnip.lsp_expand(args.body)
-      --     end,
-      --   },
-      --   completion = {
-      --     completeopt = 'menu,menuone,noinsert',
-      --   },
-      --   mapping = cmp.mapping.preset.insert {
-      --     ['<C-n>'] = cmp.mapping.select_next_item(),
-      --     ['<C-p>'] = cmp.mapping.select_prev_item(),
-      --     ['<C-b>'] = cmp.mapping.scroll_docs(-4),
-      --     ['<C-f>'] = cmp.mapping.scroll_docs(4),
-      --     ['<C-Space>'] = cmp.mapping.complete {},
-      --     ['<CR>'] = cmp.mapping.confirm {
-      --       behavior = cmp.ConfirmBehavior.Replace,
-      --       select = true,
-      --     },
-      --     ['<Tab>'] = cmp.mapping(function(fallback)
-      --       if cmp.visible() then
-      --         cmp.select_next_item()
-      --       elseif luasnip.expand_or_locally_jumpable() then
-      --         luasnip.expand_or_jump()
-      --       else
-      --         fallback()
-      --       end
-      --     end, { 'i', 's' }),
-      --     ['<S-Tab>'] = cmp.mapping(function(fallback)
-      --       if cmp.visible() then
-      --         cmp.select_prev_item()
-      --       elseif luasnip.locally_jumpable(-1) then
-      --         luasnip.jump(-1)
-      --       else
-      --         fallback()
-      --       end
-      --     end, { 'i', 's' }),
-      --   },
-      --   sources = {
-      --     { name = 'nvim_lsp' },
-      --     { name = 'calc' },
-      --     -- { name = 'cmp-calc' },
-      --     -- { name = 'luasnip' },
-      --     -- { name = 'path' },
-      --     -- { name = 'nvim_lsp_signature_help' },
-      --   },
-      -- }
 
       -- Custom siguature box
       local signature_cfg = {

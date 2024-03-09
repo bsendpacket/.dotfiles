@@ -5,46 +5,52 @@
     settings = {
 
       colors = {
-	primary = {
-          background = "0x000000";
-          foreground = "0xEBEBEB";
+        draw_bold_text_with_bright_colors = true;
+
+        primary = {
+          background = "#080808";
+          foreground = "#bdbdbd";
+          bright_foreground = "#eeeeee";
         };
 
         cursor = {
-          #text = "0xFF261E";
-          #cursor = "0xFF261E";
+          cursor = "#8e8e8e";
+          text = "#080808";
+        };
+
+        selection = {
+          background = "#b2ceee";
+          text = "#080808";
         };
 
         normal = {
-          black = "0x0D0D0D";
-          red = "0xFF301B";
-          green = "0xA0E521";
-          yellow = "0xFFC620";
-          blue = "0x178AD1";
-          magenta = "0x9f7df5";
-          cyan = "0x21DEEF";
-          white = "0xEBEBEB";
+          black = "#323437";
+          blue = "#80a0ff";
+          cyan = "#79dac8";
+          green = "#8cc85f";
+          magenta = "#cf87e8";
+          red = "#ff5454";
+          white = "#c6c6c6";
+          yellow = "#e3c78a";
         };
 
         bright = {
-          black = "0x6D7070";
-          red = "0xFF4352";
-          green = "0xB8E466";
-          yellow = "0xFFD750";
-          blue = "0x1BA6FA";
-          magenta = "0xB978EA";
-          cyan = "0x73FBF1";
-          white = "0xFEFEF8";
-
+          black = "#949494";
+          blue = "#74b2ff";
+          cyan = "#85dc85";
+          green = "#36c692";
+          magenta = "#ae81ff";
+          red = "#ff5189";
+          white = "#e4e4e4";
+          yellow = "#c6c684";
         };
       };
 
       window = {
         title = "Terminal";
-        opacity = 0.3;
         padding = { y = 5; };
         
-	dimensions = {
+        dimensions = {
           lines = 75;
           columns = 100;
         };

@@ -10,27 +10,27 @@
         modifier = "Mod1";
         terminal = "alacritty";
         bars = [];
-       
+
         gaps = {
           inner = 10;
           smartBorders = "on";
         };
         
-	window.border = 0;
+        window.border = 0;
         floating.border = 0;
         
-	fonts = {
+        fonts = {
           names = ["CaskaydiaCove Nerd Font Mono" "FontAwesome 6"];
           style = "Light Semi-Condensed";
           size = 11.0;
         };
 
-	# TIP: Utilizing `lib.mkOptionDefault` here allows us to keep all the defaults
-	# and simply add new keybinds to the configuration.
-	keybindings = lib.mkOptionDefault {
-	  
-	  # Vim-like keybindings for i3
-	  "${modifier}+h" = "focus left";
+        # TIP: Utilizing `lib.mkOptionDefault` here allows us to keep all the defaults
+        # and simply add new keybinds to the configuration.
+        keybindings = lib.mkOptionDefault {
+          
+          # Vim-like keybindings for i3
+          "${modifier}+h" = "focus left";
           "${modifier}+j" = "focus down";
           "${modifier}+k" = "focus up";
           "${modifier}+l" = "focus right";
