@@ -4,19 +4,23 @@
     enable = true;
     enableAutosuggestions = true;
     enableCompletion = true;
+
     initExtra = ''
       # Place any values that need to be handled by ~/.zshrc here, if they cannot be defined elsewhere
     '';
+
     shellAliases = {
       rebuild = "sudo nixos-rebuild switch --flake /home/remnix/.dotfiles#remnix --impure";
       py = "python3";
-      ls = "lsd";       #LSDeluxe
-      cd = "z";         #Zoxide
-      l = "ls -l";
+      ls = "lsd";       # LSDeluxe
+      cd = "z";         # Zoxide
+      l = "ls -l";      # List Files
       la = "ls -a";
-      lla = "ls -la";
-      lt = "ls --tree";
+      lla = "ls -la";   # List Files (+ Hidden)
+      lt = "ls --tree"; # List Files (Tree)
+      y = "ya";         # Yazi
     };
+
     plugins = [
       {
         name = "powerlevel10k";
@@ -34,6 +38,7 @@
         file = "share/zsh/site-functions";
       }
     ];
+
     oh-my-zsh = {
       enable = true;
       plugins = [ "git" "thefuck" ];
