@@ -1,11 +1,5 @@
 { self, pkgs, ... }: {
 
-# LOOK INTO:
-# -- Python3 virtual env
-# vim.g.python3_host_prog = '/home/kbalint/.pyenv/versions/3.11.8/bin/python'
-# 'nvim-telescope/telescope-fzf-native.nvim',
-# lsp_signature.nvim
-
   programs.nixvim = {
     enable = true;
 
