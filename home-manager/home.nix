@@ -85,6 +85,10 @@
       ripgrep
       jq
       yazi
+      
+      ffmpegthumbnailer
+      unar
+      poppler
 
       # Custom Python environment
       (python311.withPackages (ps: with ps; [
