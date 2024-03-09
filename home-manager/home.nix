@@ -71,7 +71,6 @@
       
       # Social
       chromium
-      rainbowstream
       spotify-tui
       spotifyd
 
