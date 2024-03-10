@@ -93,11 +93,13 @@
 
       # Custom Python environment
       (python311.withPackages (ps: with ps; [
-        requests
-        flask
+	requests
+	flask
 	netifaces
 	mitmproxy
 	construct
+	textual
+	textual-dev
       ]))
 
       # Fonts

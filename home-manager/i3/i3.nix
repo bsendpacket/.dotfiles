@@ -44,5 +44,8 @@
       };
     };
   };
+
+  # Enable Picom service to enable transparacy
+  services.picom.enable = true;
 }
 
