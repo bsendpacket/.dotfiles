@@ -14,6 +14,7 @@
     # Grab Scripts from Internet
     #./misc/scripts.nix
 
+    # Neovim for Nix
     inputs.nixvim.homeManagerModules.nixvim
 
     # Configurations
@@ -86,7 +87,8 @@
       ripgrep
       jq
       yazi
-      
+      ueberzugpp
+
       ffmpegthumbnailer
       unar
       poppler

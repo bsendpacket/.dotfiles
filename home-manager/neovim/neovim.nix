@@ -135,6 +135,13 @@
         lsp.signature.enabled = false;
       };
 
+      mini = {
+        enable = true;
+        modules = {
+          surround = { };
+        };
+      };
+
       lsp = {
         enable = true;
 
@@ -192,7 +199,13 @@
             settings.check.command = "clippy";
           };
 
+          # Python LSP
           pyright = {
+            enable = true;
+          };
+
+          # CSS LSP
+          cssls = {
             enable = true;
           };
         };
