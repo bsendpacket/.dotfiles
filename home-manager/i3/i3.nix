@@ -14,10 +14,18 @@
         gaps = {
           inner = 10;
           smartBorders = "on";
+          #smartGaps = true;
         };
-        
-        window.border = 0;
-        floating.border = 0;
+
+        window = {
+          border = 0;
+          titlebar = false;
+        };
+
+        floating = {
+          border = 0;
+          titlebar = false;
+        };
         
         fonts = {
           names = ["CaskaydiaCove Nerd Font Mono" "FontAwesome 6"];
@@ -39,13 +47,12 @@
           "${modifier}+Shift+j" = "move down";
           "${modifier}+Shift+k" = "move up";
           "${modifier}+Shift+l" = "move right";
+
+          # Rofi
+          "${modifier}+d" = "exec ${pkgs.rofi}/bin/rofi -show drun";
         };
 
       };
     };
   };
-
-  # Enable Picom service to enable transparacy
-  services.picom.enable = true;
 }
-

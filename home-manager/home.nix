@@ -28,6 +28,8 @@
     /home/remnix/.dotfiles/home-manager/zathura/zathura.nix
     /home/remnix/.dotfiles/home-manager/neovim/neovim.nix
 
+    # Services
+    /home/remnix/.dotfiles/home-manager/picom/picom.nix
   ];
 
   nixpkgs = {
@@ -88,6 +90,9 @@
       jq
       yazi
       ueberzugpp
+
+      rofi
+      inxi
 
       ffmpegthumbnailer
       unar
