@@ -26,6 +26,7 @@
     /home/remnix/.dotfiles/home-manager/spotifyd/spotifyd.nix
     /home/remnix/.dotfiles/home-manager/yazi/yazi.nix
     /home/remnix/.dotfiles/home-manager/zathura/zathura.nix
+    /home/remnix/.dotfiles/home-manager/rofi/rofi.nix
     /home/remnix/.dotfiles/home-manager/neovim/neovim.nix
 
     # Services
@@ -57,6 +58,9 @@
   home = {
     username = "remnix";
     homeDirectory = "/home/remnix";
+    file.".background-image" = {
+      source = "/home/remnix/.dotfiles/.wallpaper";
+    };
 
     packages = with pkgs; [
       alacritty
@@ -125,9 +129,6 @@
 
     stateVersion = "23.11";
   };
-
-  # Nicely reload system units when changing configs
-  # systemd.user.startServices = "sd-switch";
 
   # Anything more than a few lines should be moved to another file!
   programs = {

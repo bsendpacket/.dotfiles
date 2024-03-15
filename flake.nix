@@ -37,9 +37,18 @@
     # Available through 'nixos-rebuild --flake .#remnix'
     nixosConfigurations = {
       remnix = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs;};
+        specialArgs = { inherit inputs outputs; };
         # > Our main nixos configuration file <
-        modules = [./nixos/configuration.nix];
+        modules = [
+          ./nixos/configuration.nix
+        ];
+      };
+
+      remnixISO = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs; };
+        modules = [
+          /home/remnix/.dotfiles/iso/configuration.nix
+        ];
       };
     };
   };
