@@ -316,7 +316,20 @@
           };
         });
       }
-
+      {
+        # Code outline for skimming and quick navigation
+        # Use with <leader>a, Skim with n-{ and n-}
+        plugin = (pkgs.vimUtils.buildVimPlugin {
+          name = "aerial";
+          src = pkgs.fetchFromGitHub {
+            owner = "stevearc";
+            repo = "aerial.nvim";
+            rev = "993142d49274092c64a2d475aa726df3c323949d";
+            hash = "sha256-BgztBMZCJ1ew4HOiScFzwY8HMhteqmLe/MW4up43/Bo=";
+          };
+        });
+      }
+      
       # Detect tabstop and shiftwidth automatically
       pkgs.vimPlugins.vim-sleuth
 
@@ -360,6 +373,17 @@
         end,
       }
       require "lsp_signature".setup(signature_cfg)
+
+      require("aerial").setup({
+        -- optionally use on_attach to set keymaps when aerial has attached to a buffer
+        on_attach = function(bufnr)
+          -- Jump forwards/backwards with '-' and '+'
+          vim.keymap.set("n", "-", "<cmd>AerialPrev<CR>", { buffer = bufnr })
+          vim.keymap.set("n", "+", "<cmd>AerialNext<CR>", { buffer = bufnr })
+        end,
+      })
+      -- You probably also want to set a keymap to toggle aerial
+      vim.keymap.set("n", "<leader>a", "<cmd>AerialToggle!<CR>")
     '';
   };
 }
