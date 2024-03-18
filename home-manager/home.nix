@@ -19,7 +19,7 @@
 
     # Configurations
     /home/remnix/.dotfiles/home-manager/kitty/kitty.nix
-    /home/remnix/.dotfiles/home-manager/alacritty/alacritty.nix
+    #/home/remnix/.dotfiles/home-manager/alacritty/alacritty.nix
     /home/remnix/.dotfiles/home-manager/zsh/zsh.nix
     /home/remnix/.dotfiles/home-manager/i3/i3.nix
     /home/remnix/.dotfiles/home-manager/git/git.nix
@@ -65,7 +65,7 @@
 
     packages = with pkgs; [
       kitty
-      alacritty
+      #alacritty
 
       git
       zsh-fast-syntax-highlighting

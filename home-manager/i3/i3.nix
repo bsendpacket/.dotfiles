@@ -8,7 +8,8 @@
       config = rec {
 
         modifier = "Mod1";
-        terminal = "alacritty";
+        #terminal = "alacritty";
+        terminal = "kitty";
         bars = [];
 
         gaps = {

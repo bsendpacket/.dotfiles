@@ -40,10 +40,13 @@
       # Cursor shape
       cursor_shape = "block";
 
-      # Drawing bold text with bright colors
-      draw_bold_text_with_bright_colors = true;
+      # No terminal bell sound
+      enable_audio_bell = "false";
 
-      window_padding_width = 5; # Assuming 'y' padding is vertical padding in Kitty
+      # Set the shell to zsh
+      shell = "zsh";
+
+      window_padding_width = 0;
     };
   };
 }
