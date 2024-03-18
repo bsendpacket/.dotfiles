@@ -18,6 +18,7 @@
     inputs.nixvim.homeManagerModules.nixvim
 
     # Configurations
+    /home/remnix/.dotfiles/home-manager/kitty/kitty.nix
     /home/remnix/.dotfiles/home-manager/alacritty/alacritty.nix
     /home/remnix/.dotfiles/home-manager/zsh/zsh.nix
     /home/remnix/.dotfiles/home-manager/i3/i3.nix
@@ -63,7 +64,9 @@
     };
 
     packages = with pkgs; [
+      kitty
       alacritty
+
       git
       zsh-fast-syntax-highlighting
 
@@ -101,6 +104,9 @@
       ffmpegthumbnailer
       unar
       poppler
+
+      tmux
+      lazygit
 
       # Custom Python environment
       (python311.withPackages (ps: with ps; [
