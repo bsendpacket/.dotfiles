@@ -96,6 +96,7 @@
       ripgrep
       jq
       yazi
+      hexyl
       ueberzugpp
 
       rofi
