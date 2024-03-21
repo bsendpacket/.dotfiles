@@ -1,18 +1,40 @@
-{ pkgs, ... }: {
+{ pkgs, lib, home, ... }: 
+let
+  # To get a SHA-256 for a GitHub repo:
+  # Use nix-prefetch-url --unpack
+  # i.e. for the Hexyl repo, use:
+  # nix-prefetch-url --unpack https://github.com/Reledia/hexyl.yazi/archive/refs/heads/main.zip
+
+  hexylPlugin = pkgs.fetchFromGitHub {
+    owner = "Reledia";
+    repo = "hexyl.yazi";
+    rev = "4162cb34fa9d4e27251243714c3c19166aa4be95";
+    sha256 = "15ci64d29qc6qidnmsmy4ykzfcjdzpz6hx25crsbg1rfad9vqxbj";
+  };
+in {
+  xdg.configFile."yazi/plugins/hexyl.yazi".source = hexylPlugin;
 
   programs.yazi = {
     enable = true;
     enableZshIntegration = true;
     settings = {
       log = {
-        enabled = false;
+        enabled = true;
+      };        
+
+      plugin = {
+        append_previewers = [
+          { name = "*"; run = "hexyl"; }
+        ];
       };
+
       manager = {
         show_hidden = true;
         sort_by = "natural";
         sort_dir_first = true;
         sort_reverse = false;
       };
+
     };
 
     theme = {
@@ -164,7 +186,7 @@
 
       help = {
         on = { fg = "#ae81ff"; };
-        exec = { fg = "#85dc85"; };
+        run = { fg = "#85dc85"; };
         desc = { fg = "#bdbdbd"; };
         hovered = {
           bg = "#323437";

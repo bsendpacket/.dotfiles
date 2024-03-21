@@ -82,8 +82,9 @@
       
       # Social
       chromium
-      spotify-tui
+      #spotify-tui # This package was apparently unmaintained. Need to find a workaround?
       spotifyd
+      discord
 
       # Utilities
       xclip
