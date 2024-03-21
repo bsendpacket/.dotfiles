@@ -11,6 +11,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    system-manager = {
+      url = "github:numtide/system-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nixvim = {
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -28,11 +33,18 @@
     self,
     nixpkgs,
     home-manager,
+    system-manager,
     nixvim,
     ...
   } @ inputs: let
     inherit (self) outputs;
   in {
+    systemConfigs.default = system-manager.lib.makeSystemConfig {
+      modules = [
+        /home/remnix/.dotfiles/modules
+      ];
+    };
+
     # NixOS configuration entrypoint
     # Available through 'nixos-rebuild --flake .#remnix'
     nixosConfigurations = {
@@ -50,6 +62,27 @@
           /home/remnix/.dotfiles/iso/configuration.nix
         ];
       };
+    };
+
+    homeConfigurations = {
+      # NixOS home configuration setup lives in
+      # nixos-config/default.nix and their respective host-specific
+      # modules.
+
+      remnix = home-manager.lib.homeManagerConfiguration {
+        system = "x86_64-linux";
+        username = "remnix";
+        homeDirectory = "/home/remnix";
+
+        configuration = /home/remnix/.dotfiles/home-manager/home.nix; 
+        extraSpecialArgs.flake-inputs = inputs;
+      };
+    };
+
+    packages.x86_64-linux = {
+      inherit self;
+      pkgs = nixpkgs.legacyPackages.x86_64-linux;
+      flake-inputs = inputs;
     };
   };
 }
