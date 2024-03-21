@@ -105,6 +105,8 @@
     LC_TIME = "en_US.UTF-8";
   };
 
+  programs.ssh.enableAskPassword = false;
+
   services = {
     xserver = {
       enable = true;
