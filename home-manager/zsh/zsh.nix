@@ -29,6 +29,11 @@
         file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
       }
       {
+        name = "zsh-fzf-history-search";
+        src = pkgs.zsh-fzf-history-search;
+        file = "share/zsh-fzf-history-search/zsh-fzf-history-search.zsh";
+      }
+      {
         name = "powerlevel10k-config";
         src = ./powerlevel10k;
         file = "p10k.zsh";
