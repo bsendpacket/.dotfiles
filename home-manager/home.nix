@@ -74,6 +74,7 @@
       thefuck
 
       _7zz
+      ouch
       htop
       glances
 
@@ -120,6 +121,11 @@
 	textual
 	textual-dev
       ]))
+
+      dive
+      distrobox
+      podman-tui
+      podman-compose
 
       # Fonts
       (nerdfonts.override { fonts = [ "CascadiaCode" ]; })
