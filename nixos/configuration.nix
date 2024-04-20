@@ -180,7 +180,8 @@
   # /nix/store/k78nc1bplhy4yjblqwlc14h6rdisix3w-i3blocks-1.4/libexec/i3blocks/[BLOCKS]
   environment.pathsToLink = [ "/libexec" ];  
 
-
+  # Disable (ugly) X11 prompt for password
+  programs.ssh.enableAskPassword = false;
 
   services.xserver.displayManager.autoLogin.enable = true;
   services.xserver.displayManager.autoLogin.user = "remnix";
