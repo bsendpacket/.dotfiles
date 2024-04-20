@@ -91,6 +91,7 @@
       xclip
       xdragon
 
+      bat
       lsd
       zoxide
       fzf
