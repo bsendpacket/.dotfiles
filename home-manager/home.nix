@@ -24,7 +24,7 @@
     /home/remnix/.dotfiles/home-manager/i3/i3.nix
     /home/remnix/.dotfiles/home-manager/git/git.nix
     /home/remnix/.dotfiles/home-manager/zoxide/zoxide.nix
-    /home/remnix/.dotfiles/home-manager/spotifyd/spotifyd.nix
+    #/home/remnix/.dotfiles/home-manager/spotifyd/spotifyd.nix
     /home/remnix/.dotfiles/home-manager/yazi/yazi.nix
     /home/remnix/.dotfiles/home-manager/zathura/zathura.nix
     /home/remnix/.dotfiles/home-manager/rofi/rofi.nix
@@ -125,8 +125,9 @@
 
       dive
       distrobox
-      podman-tui
-      podman-compose
+      podman
+
+      xorg.xhost
 
       # Fonts
       (nerdfonts.override { fonts = [ "CascadiaCode" ]; })
